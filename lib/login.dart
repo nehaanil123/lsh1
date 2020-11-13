@@ -7,29 +7,18 @@ class Login extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Text(
-              'Login Page',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
-                fontSize: 30.0,
-              ),
-            ),
-            SizedBox(
-              width: 50,
-            ),
-            IconButton(
-              icon: Icon(Icons.cancel,color: Colors.black,size: 30.0,),
-              onPressed: (){
-                Navigator.pushNamed(context, '/baseapp');
-              },
-            ),
-          ],
-        ),
         backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back,color: Colors.black,size: 30.0,),
+          onPressed: (){
+            Navigator.pushNamed(context, '/baseapp');
+          },
+        ),
+        title: Text('login',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -60,6 +49,7 @@ class Login extends StatelessWidget {
                     padding: EdgeInsets.all(10.0),
                     width: 300,
                     child: TextField(
+                      obscureText: true,
                       decoration:
                       InputDecoration(labelText: 'Password'),
                     ),
@@ -67,18 +57,30 @@ class Login extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(
+              height: 30,
+            ),
             Container(
-              margin: EdgeInsets.all(10.0),
-              child: RaisedButton(
-                child: Text(
-                  'Login',
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: MaterialButton(
+                onPressed: (){},
+                minWidth: 300,
+                color: Colors.teal,
+                height: 60,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                elevation: 2,
+                child: Text("Login",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
-                    fontSize: 20.0,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                    fontFamily: "Roboto",
+                    color: Colors.white,
                   ),
                 ),
-                onPressed: () {},
               ),
             ),
             Container(
