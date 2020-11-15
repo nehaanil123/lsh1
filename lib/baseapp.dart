@@ -6,9 +6,10 @@ class BaseApp extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
+          height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/2.jpg"),
+              image: AssetImage("assets/images/loginsignup/2.jpg"),
               fit: BoxFit.cover,
             ),
           ),

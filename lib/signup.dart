@@ -16,6 +16,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
           leading: IconButton(
@@ -117,7 +118,9 @@ class _SignUpState extends State<SignUp> {
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: MaterialButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.pushNamed(context, '/login');
+                  },
                   minWidth: 300,
                   color: Colors.teal,
                   height: 60,
@@ -157,18 +160,18 @@ class _SignUpState extends State<SignUp> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   IconButton(
-                    icon: Image.asset('assets/images/download.png'),
+                    icon: Image.asset('assets/images/loginsignup/download.png'),
                     iconSize: 50,
                     onPressed: () {},
 
                   ),
                   IconButton(
-                    icon: Image.asset('assets/images/ff.png'),
+                    icon: Image.asset('assets/images/loginsignup/ff.png'),
                     iconSize: 50,
                     onPressed: () {},
                   ),
                   IconButton(
-                    icon: Image.asset('assets/images/dd.png'),
+                    icon: Image.asset('assets/images/loginsignup/dd.png'),
                     iconSize: 50,
                     onPressed: () {},
                   ),

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
   @override
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -23,38 +25,39 @@ class Login extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Card(
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.mail,
+            Container(
+              padding: EdgeInsets.all(20.0),
+              child: TextField(
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+                controller: emailController,
+                decoration: InputDecoration(
+                  icon: Icon(Icons.mail,
+                    color: Colors.teal,
                   ),
-                  Container(
-                    padding: EdgeInsets.all(10.0),
-                    width: 300,
-                    child: TextField(
-                      decoration: InputDecoration(labelText: 'Email'),
-                    ),
-                  ),
-                ],
+                  border: OutlineInputBorder(),
+                  labelText: 'E-mail',
+                ),
               ),
             ),
-            Card(
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.account_box,
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(10.0),
-                    width: 300,
-                    child: TextField(
-                      obscureText: true,
-                      decoration:
-                      InputDecoration(labelText: 'Password'),
-                    ),
-                  ),
-                ],
+            SizedBox(
+              height: 5.0,
+            ),
+            Container(
+              padding: EdgeInsets.all(20.0),
+              child: TextField(
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+                obscureText: true,
+                controller: passwordController,
+                decoration: InputDecoration(
+                  icon: Icon(Icons.lock_outline,
+                    color: Colors.teal,),
+                  border: OutlineInputBorder(),
+                  labelText: 'Password',
+                ),
               ),
             ),
             SizedBox(
@@ -65,7 +68,9 @@ class Login extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50),
               ),
               child: MaterialButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.pushNamed(context, '/home_screen');
+                },
                 minWidth: 300,
                 color: Colors.teal,
                 height: 60,
@@ -83,11 +88,50 @@ class Login extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(
+              height: 60.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "-or sign up with-",
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontFamily: "Roboto",
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                  icon: Image.asset('assets/images/loginsignup/download.png'),
+                  iconSize: 50,
+                  onPressed: () {},
+
+                ),
+                IconButton(
+                  icon: Image.asset('assets/images/loginsignup/ff.png'),
+                  iconSize: 50,
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: Image.asset('assets/images/loginsignup/dd.png'),
+                  iconSize: 50,
+                  onPressed: () {},
+                ),
+              ],
+            ),
             Container(
               margin: EdgeInsets.all(10),
               child: Row(
                 children: <Widget>[
-                  Text('Have an account ?',style: TextStyle(fontSize: 20.0),),
+                  Text('Don\'t have an account ?',style: TextStyle(fontSize: 20.0),),
                   FlatButton(
                     child: Text('Sign in',style: TextStyle(fontSize: 20,),),
                     onPressed: () {
